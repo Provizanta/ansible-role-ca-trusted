@@ -1,0 +1,3 @@
+---
+
+certificates_path: "{{ root_dir }}/files/ca/"
