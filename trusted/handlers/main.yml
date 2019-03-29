@@ -1,9 +1,9 @@
 ---
 
-- name: update trusted ca debian
+- name: update trusted ca Debian
   shell: /usr/sbin/update-ca-certificates
-  when: ansible_os_family | lower == "debian"
+  when: ansible_os_family == "Debian"
  
-- name: update trusted ca redhat
+- name: update trusted ca RedHat
   shell: /bin/update-ca-trust
-  when: ansible_os_family | lower == "redhat"
+  when: ansible_os_family == "RedHat"

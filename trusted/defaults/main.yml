@@ -1,3 +1,3 @@
 ---
 
-certificates_path: "{{ root_dir }}/files/ca/"
+certificates_dir: "{{ ansible_user_dir }}/"
