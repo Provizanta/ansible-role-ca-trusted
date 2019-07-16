@@ -1,0 +1,36 @@
+---
+
+galaxy_info:
+  role_name: ca-trusted
+  author: Tibor Csóka
+  description: |
+    "Establish trusted CA certificates."
+  company: ""
+
+  license: MIT
+
+  min_ansible_version: 2.7.1
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - cosmic
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+    - name: Fedora
+      versions:
+        - all
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - ca
+    - certificate
+    - trusted
+
+dependencies: []

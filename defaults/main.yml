@@ -1,0 +1,3 @@
+---
+
+certificates_dir: "{{ ansible_user_dir }}/"   # load certificates from this dir

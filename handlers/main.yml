@@ -8,4 +8,4 @@
 - name: update trusted ca RedHat
   when: ansible_os_family == "RedHat"
   become: true
-  shell: /bin/update-ca-trust
+  command: /bin/update-ca-trust
