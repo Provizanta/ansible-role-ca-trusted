@@ -25,5 +25,19 @@
     group: root
     mode: "u=rw,go=r"
   loop: "{{ query('fileglob', '%s/*' | format(certificates_dir)) }}"
-  notify: update trusted ca {{ ansible_os_family }}
+  register: certificates
   tags: configure
+
+- name: Debian  | update trusted CA   # noqa 503
+  when:
+    - certificates.changed
+    - ansible_os_family == "Debian"
+  become: true
+  command: /usr/sbin/update-ca-certificates
+
+- name: RedHat | update trusted CA    # noqa 503
+  when:
+    - certificates.changed
+    - ansible_os_family == "RedHat"
+  become: true
+  command: /bin/update-ca-trust
