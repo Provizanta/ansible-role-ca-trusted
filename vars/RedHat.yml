@@ -1,3 +1,5 @@
 ---
 
-ca_path: "{{ (ansible_distribution_version | int < 7) | ternary('/usr/local/share/ca-certificates','/etc/pki/ca-trust/source/anchors' }}"
+ca_path: "{{ (ansible_distribution_version | int < 7) | ternary('/usr/local/share/ca-certificates', '/etc/pki/ca-trust/source/anchors') }}"
+
+update_trusted_system_ca: "/bin/update-ca-trust"

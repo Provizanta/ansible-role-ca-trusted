@@ -1,3 +1,5 @@
 ---
 
 ca_path: "/usr/local/share/ca-certificates/"
+
+update_trusted_system_ca: "/usr/sbin/update-ca-certificates"

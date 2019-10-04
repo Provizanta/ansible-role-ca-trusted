@@ -11,7 +11,7 @@
   when:
     - ansible_os_family == "RedHat"
     - ansible_distribution_major_version | int == 6
-  tags: install
+  tags: install, configure
 
 - name: import os family variables
   include_vars: "{{ ansible_os_family }}.yml"
@@ -24,20 +24,14 @@
     owner: root
     group: root
     mode: "u=rw,go=r"
-  loop: "{{ query('fileglob', '%s/*' | format(certificates_dir)) }}"
+  loop: "{{ ca_trusted_certificates }}"
   register: certificates
   tags: configure
 
-- name: Debian  | update trusted CA   # noqa 503
+- name: update trusted CA   # noqa 503
   when:
     - certificates.changed
-    - ansible_os_family == "Debian"
+    - ansible_os_family in ["Debian", "RedHat"]
   become: true
-  command: /usr/sbin/update-ca-certificates
-
-- name: RedHat | update trusted CA    # noqa 503
-  when:
-    - certificates.changed
-    - ansible_os_family == "RedHat"
-  become: true
-  command: /bin/update-ca-trust
+  command: "{{ update_trusted_system_ca }}"
+  tags: configure

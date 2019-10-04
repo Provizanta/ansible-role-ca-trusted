@@ -4,14 +4,19 @@
   hosts: all
   pre_tasks:
     - name: prepare temporary cert directory
+      delegate_to: 127.0.0.1
       file:
         path: /tmp/certs/
         state: directory
+
     - name: fetch google cert into the prepared directory
+      delegate_to: 127.0.0.1
       get_url:
         url: https://pki.google.com/GIAG2.crt
         dest: /tmp/certs/
+
   roles:
     - role: ca-trusted
       vars:
-        certificates_dir: "/tmp/certs/"
+        ca_trusted_certificates:
+          - "/tmp/certs/GIAG2.crt"      # from ansible host machine

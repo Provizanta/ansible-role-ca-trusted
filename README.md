@@ -3,7 +3,7 @@ Ansible role: Trusted CA
 
 [![Build Status](https://travis-ci.com/Provizanta/ansible-role-ca-trusted.svg?branch=master)](https://travis-ci.com/Provizanta/ansible-role-ca-trusted)
 
-Add trusted CA certificates.
+Add CA certificates to the system trusted certificates.
 
 Requirements
 ------------
@@ -13,9 +13,9 @@ None
 Role Variables
 --------------
 
-These defaults are set in defaults/main.yml:
+These defaults are set in [defaults/main.yml](defaults/main.yml):
 
-    certificates_dir: "{{ ansible_user_dir }}/"   # load certificates from this dir
+    ca_trusted_certificates: []   # add these certificates to the trusted CA certificates
 
 Dependencies
 ------------
@@ -29,9 +29,11 @@ In a minimalistic scenario no vars need to be supplied.
 
     - hosts: servers
       roles:
-       - role: ca-trusted
-         vars:
-           certificates_dir: "~/ca/"
+        - role: ca-trusted
+          vars:
+            ca_trusted_certificates:
+              - "/tmp/certs/GIAG2.crt"      # from ansible host machine
+
 
 License
 -------
