@@ -1,5 +1,7 @@
 ---
 
+dist: bionic
+
 language: python
 python:
   - 3.6
@@ -18,9 +20,10 @@ env:
     - MOLECULE_DISTRO: fedora27
     - MOLECULE_DISTRO: fedora29
     - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: centos8
 
 install:
-  - pip install molecule docker
+  - pip install molecule ansible-lint flake8 docker
 
 before_script:
   - cd ../
@@ -30,5 +33,5 @@ before_script:
 script:
   - molecule test
 
-# notifications:
-#   webhooks: https://galaxy.ansible.com/api/v1/notifications/?branch=master
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/?branch=master
