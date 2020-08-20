@@ -1,7 +1,7 @@
 Ansible role: Trusted CA
 =========
 
-[![Build Status](https://travis-ci.com/Provizanta/ansible-role-ca-trusted.svg?branch=master)](https://travis-ci.com/Provizanta/ansible-role-ca-trusted)
+![Build & Deploy](https://github.com/Provizanta/ansible-role-ca-trusted/workflows/molecule/badge.svg?branch=master)
 
 Add CA certificates to the system trusted certificates.
 
