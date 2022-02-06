@@ -2,6 +2,7 @@
 
 galaxy_info:
   role_name: ca-trusted
+  namespace: provizanta
   author: Tibor Csóka
   description: |
     "Establish trusted CA certificates."
