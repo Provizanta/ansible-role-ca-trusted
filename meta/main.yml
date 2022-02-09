@@ -1,7 +1,7 @@
 ---
 
 galaxy_info:
-  role_name: ca-trusted
+  role_name: ca_trusted
   namespace: provizanta
   author: Tibor Csóka
   description: |
